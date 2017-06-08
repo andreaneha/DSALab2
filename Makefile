@@ -16,8 +16,9 @@ test: src/testing.c
 	$(CC) $(CFLAGS) src/testing.c src/arrayImpl.c  -Iinclude -o bin/testMe
 
 #add a second target to build a different program with the same library
-prog: src/main.c src/arrayImpl.c
+prog: src/main.c
 	$(CC) $(CFLAGS) src/main.c -Iinclude -o bin/runMe
+	./bin/runMe
 
 doxy: Doxyfile
 	doxygen
