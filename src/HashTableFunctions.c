@@ -1,20 +1,22 @@
 #include<stdio.h>
 #include"HashTableAPI.h"
+#include"TestFunctions.h"
 
 HTable *createTable(size_t size, int (*hashFunction)(size_t tableSize, int key),void (*destroyData)(void *data),void (*printData)(void *toBePrinted)){
-    Htable *hashTable;
+    HTable *hashTable;
     Node **table;
-    hashTable = malloc(sizeof(Htable));
-    hashtable->size = size;
-    hashtable->hashFunction = hashFunction;
-    hashtable->printData = printData;
-    hashtable->destroyData = destroyData;
+    hashTable = malloc(sizeof(HTable));
+    hashTable->size = size;
+    hashTable->hashFunction = hashFunction;
+    hashTable->printData = printData;
+    hashTable->destroyData = destroyData;
     table = malloc(size* sizeof(Node *));
     for(int i=0; i<size; i++){
-        table[i] = malloc(sizeof(node));
+        table[i] = malloc(sizeof(Node));
         table[i] = NULL;
     }
     table[size] = NULL;
+    hashTable->table = &table[0];
     return hashTable;
 }
 
@@ -23,8 +25,8 @@ Node *createNode(int key, void *data){
     newNode = malloc(sizeof(Node));
     newNode->key = key;
     newNode->data = data;
-    struct Node *next -> NULL;
-    return Node;
+    newNode->next = NULL;
+    return newNode;
 }
 
 void destroyTable(HTable *hashTable){
@@ -46,17 +48,19 @@ void destroyTable(HTable *hashTable){
         hashTable->destroyData(currentNode->data);
     } //finish distroying table
     //now destroy the Htable itself
-    free(HashTable);
+    free(hashTable);
     }
 
 void insertData( HTable * hashTable, int key, void *data){
     if (hashTable != NULL){
         int hashIndex;
         Node * newNode;
+        Node *currentNode;
         newNode = createNode(key, data);
         hashIndex = hashTable->hashFunction(hashTable->size, key);
         if(hashTable->table[hashIndex] != NULL){
-            currentNode = table[hashIndex];
+            Node * currentCollisionNode;
+            currentNode = hashTable->table[hashIndex];
             currentCollisionNode = currentNode->next;
             while (currentCollisionNode != NULL){
                 currentCollisionNode = currentCollisionNode->next; 
@@ -64,19 +68,19 @@ void insertData( HTable * hashTable, int key, void *data){
                 currentCollisionNode = newNode;
         }
         else{
-            hashTable[hashIndex] = newNode;
+            hashTable->table[hashIndex] = newNode;
         }
     }
 }
 
 void removeData (HTable *hashTable, int key){
     if (hashTable != NULL){
-        int index 
-        index =  hashFunction(hashTable->size, key);
+        int index;
+        index =  hashTable->hashFunction(hashTable->size, key);
         if(hashTable->table[index] != NULL){
             Node *currentNode;
             Node *prev;
-            node = table[index];
+            currentNode = hashTable->table[index];
             prev = NULL;
             while (currentNode -> key != key){
                 prev = currentNode;
@@ -87,7 +91,7 @@ void removeData (HTable *hashTable, int key){
             }
             if(currentNode->key == key){
                 if(prev==NULL){
-                    hashTable->table[index] = currentNode->nextNode;
+                    hashTable->table[index] = currentNode->next;
                     free(currentNode);
                 }
                 else{
@@ -102,7 +106,7 @@ void removeData (HTable *hashTable, int key){
 void *lookupData(HTable *hashTable, int key){
     if (hashTable != NULL){
       int index;
-      index = hashFunction(hashTable->size, key);
+      index = hashTable->hashFunction(hashTable->size, key);
       
       if (hashTable->table[index] == NULL){ //assume this
           return NULL;
@@ -115,9 +119,11 @@ void *lookupData(HTable *hashTable, int key){
         }
         tempNode = tempNode->next;
       }
-      return null;
     }
+
+    return NULL;
 }
+
 
 
 
