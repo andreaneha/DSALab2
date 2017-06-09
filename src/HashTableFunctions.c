@@ -1,3 +1,11 @@
+/*
+ Author: Andrea Fernandes
+ Date: June 17th 2017 
+ Purpose: Function definitions for the function prototypes in the hashTableAPI.h file
+ University of Guelph, 2017.
+ CIS*2520 (DE) S17
+*/
+
 #include<stdio.h>
 #include"HashTableAPI.h"
 #include"TestFunctions.h"

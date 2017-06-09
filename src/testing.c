@@ -1,13 +1,10 @@
 /*
-Author: Andrea Fernandes
-Date: June 19
-Purpose: Test the hash api
-    
-University of Guelph, 2017.
-CIS*2520 (DE) S16
+ Author: Andrea Fernandes
+ Date: June 17th 2017 
+ Purpose: test the testFunctionsAPI.h
+ University of Guelph, 2017.
+ CIS*2520 (DE) S17
 */
-
-// test main.c
 
 #include<stdio.h>
 #include"HashTableAPI.h"
