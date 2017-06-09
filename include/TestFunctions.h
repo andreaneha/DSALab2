@@ -1,12 +1,12 @@
 /**
- *@file TestFinctions.h
+ *@file TestFunctions.h
  * @author Andrea Fernandes
  * @date June 2017
  * @brief File containing the function definitions used in the hash table struct
 */
 
-#ifndef _HASH_API_
-#define _HASH_API_
+#ifndef _TEST_FUNCTION_
+#define _TEST_FUNCTION_
 
 #include <stdio.h>
 #include <stdlib.h>

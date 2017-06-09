@@ -13,11 +13,12 @@ cppcheck:
 
 #this is the target for building one main with a library  
 test: src/testing.c
-	$(CC) $(CFLAGS) src/testing.c src/arrayImpl.c  -Iinclude -o bin/testMe
+	$(CC) $(CFLAGS) src/testing.c src/HashTableFunctions.c src/TestFunctions.c -I include -o bin/testMe
+	./bin/testMe
 
 #add a second target to build a different program with the same library
-prog: src/main.c src/HashTableFunctions.c src/TestFunctions.c
-	$(CC) $(CFLAGS) src/main.c src/HashTableFunctions.c -Iinclude -o bin/runMe
+prog: src/main.c 
+	$(CC) $(CFLAGS) src/main.c src/HashTableFunctions.c src/TestFunctions.c -I include -o bin/runMe
 	./bin/runMe
 
 doxy: Doxyfile
