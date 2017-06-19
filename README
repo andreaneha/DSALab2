@@ -1,30 +1,30 @@
 ****************************************************
-Your name		    Your student number
-The class name		The assignment name/number
-The date			your uoguelph email address
+Andrea Fernandes	0808213
+Data Structures		Lab 2 - Hash table
+June 19			aferna06@uoguelph.ca
 ****************************************************
 
 
 ************************
 Program Description
 **************************
- This program implements a basic structure for an abstract array. It is incomplete
- and should be considered as a demonstration only for CIS*2520.
- Throughout the code, I've tried follow good coding standards.
+ This program has some basic functions for Hash tables. It was completed for lab 2
 
 
 ************
 Compilation
 ************
  To compile this code:
- run: make
+ run: make prog
+ *note* this runs the main.c file, which doesn't really do anything. 
 
  To compile the testing program:
  run: make test
+ *note* I used this file to test my code as I went along
 
   Detailed Make options:
 
-  make  runs the cppcheck option
+  make  runs the cppcheck option - in theory. I'm not sure if it actually does... sorry. 
   make prog  compiles the main.c program with the library
   make test compiles the testing.c program with the library
   make doxy creates the doxygen documentation in the docs subdirectory
@@ -34,8 +34,6 @@ Compilation
 Known Limitations, Issues and Errors
 ****************************
 
- Incomplete set of functions.  
- Untested.  
- testing.c does not exist
+
 
 

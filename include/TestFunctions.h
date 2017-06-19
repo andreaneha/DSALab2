@@ -1,6 +1,6 @@
 /**
  *@file TestFunctions.h
- * @author Andrea Fernandes
+ * @author Andrea Fernandes 0808213 aferna06@uoguelph.ca
  * @date June 2017
  * @brief File containing the function definitions used in the hash table struct
  */
